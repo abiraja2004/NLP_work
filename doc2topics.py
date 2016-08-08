@@ -73,14 +73,14 @@ def main(argv):
 
     # corpus.dictionary.filter_extremes(no_below=5)
 
-    corpus.dictionary.save(os.path.join(Settings.MODELS_DIR, Settings.DICTIONARY_FILENAME))
-    gensim.corpora.MmCorpus.serialize(os.path.join(Settings.MODELS_DIR, Settings.CORPUS_FILENAME), corpus)
+    # corpus.dictionary.save(os.path.join(Settings.MODELS_DIR, Settings.DICTIONARY_FILENAME))
+    # gensim.corpora.MmCorpus.serialize(os.path.join(Settings.MODELS_DIR, Settings.CORPUS_FILENAME), corpus)
     lda = gensim.models.LdaModel(corpus, id2word=corpus.dictionary, num_topics=NUM_TOPICS)
     if num2show == 0:
         print lda.print_topic(num2show)
     else:
         for i in range(num2show):
             print lda.print_topic(i)
-            
+
 if __name__ == "__main__":
     main(sys.argv[1:])
