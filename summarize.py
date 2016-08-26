@@ -22,3 +22,4 @@ def summaryPlusKeywords(fileName):
         return summ, keyw
     except:
         print 'summary failed?: {}'.format(sys.exc_info()[0])
+        sys.exit(1)
